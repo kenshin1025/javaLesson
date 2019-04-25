@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>メソッド</title>
+  <style type="text/css">
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+code{ white-space: pre-wrap; }
+span.smallcaps{ font-variant: small-caps; }
+span.underline{ text-decoration: underline; }
+div.column{ display: inline-block; vertical-align: top; width: 50%; }
+body {
+  font-size: 14pt;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #f8f8f8;
+  color: #232323;
+}
+hr {
+  height: 4px;
+  padding: 0;
+  margin: 2rem 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+  background:
+  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC");
+}
+p, table {
+  font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.03rem;
+}
+strong {
+  text-decoration: none;
+  color: hsla(0, 75%, 55%, 1);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #232323;
+  letter-spacing: 0.05rem;
+  margin-top: 2rem;
+}
+h1 { font-size: 2rem; margin: 2rem auto 1rem; text-align: center; }
+h2 { font-size: 1.75rem; border-bottom: 1px solid rgba(0, 0, 0, 0.2); margin: 2rem 0 1rem; }
+h3 { font-size: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.2); margin: 2rem 0 1rem; }
+h4 { font-size: 1.25rem; margin: 2rem 0 1rem; }
+h5 { font-size: 1.2rem; margin: 2rem 0 1rem; }
+h6 { font-size: 1.1rem; margin: 2rem 0 1rem; }
+ul, ol {
+  font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  line-height: 1.6;
+  letter-spacing: 0.025rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 2rem;
+}
+ul li, ol li {
+  padding-left: .5rem;
+}
+ul ul, ol ul,
+ul ol, ol ol {
+  padding-left: 1.5rem;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  font-size: 1rem;
+  overflow: auto;
+}
+table th {
+  text-align: center;
+  font-weight: nomal;
+  background-color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+table tr {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+}
+table td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+}
+a {
+  color: #5484c8;
+}
+.margin-clear {
+  margin-left: 0;
+}
+blockquote {
+  border-left: 4px #ddd solid;
+  padding: 0;
+  margin: 2rem;
+}
+blockquote * {
+  color: #999;
+}
+blockquote p {
+  padding: 0 1rem;
+  text-indent: 0;
+}
+pre, code, var, samp, kbd, .mono {
+  font-family: "Ricty Diminished", Consolas, 'Courier New', Courier, Monaco, monospace;
+  font-family: "Ricty Diminished", "Consolas", "Courier New", monospace;
+  line-height: 1.2;
+}
+table code,
+p code,
+ul code,
+ol code {
+  display: inline-block;
+  border: 1px solid #eaeaea;
+  background-color: rgb(119, 119, 119);
+  color: #f8f8f8;
+  white-space: nowrap;
+  border-radius: 2px;
+  display: inline-block;
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 0px;
+  margin: 0 4px;
+}
+pre code {
+  border: 1px solid #eaeaea;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  font-size: 1rem;
+}
+.highlight pre {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 4px;
+}
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+pre.sourceCode {
+  overflow: auto !important;
+}
+p img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">メソッド</h1>
+</header>
+<blockquote>
+<p>オブジェクト指向プログラミングおよび演習1 第3回</p>
+</blockquote>
+<h1 id="命令をまとめて再利用する">命令をまとめて再利用する</h1>
+<p>簡単に言えば、C言語における関数がクラス単位で持つようにできるもの。</p>
+<h2 id="メソッドとは">メソッドとは</h2>
+<p>命令をまとめて１つの「処理」とするための記述です。</p>
+<h3 id="分が家から外出する処理について考えましょう">⾃分が「家から外出する」処理について考えましょう</h3>
+<p>思いついた各動作を洗い出します。</p>
+<ol type="1">
+<li>『⽞関へ向かう』</li>
+<li>『⽞関についたら、下駄箱から靴を出す』</li>
+<li>『靴を履く』</li>
+<li>『ドアの前に⽴つ』</li>
+<li>『ドアは押して開けるタイプか引いて開けるタイプか？』</li>
+<li>『押して開けるタイプなので、ドアノブをひねり押して開ける』</li>
+<li>『⼆歩前に出る』</li>
+<li>『ドアノブから⼿を離す』</li>
+<li>『振り返る』</li>
+<li>『ドアが閉まっているか？』</li>
+<li>『ドアが閉まっていなければ閉める』</li>
+<li>『ドアが閉まったらドアの鍵を取り出し鍵を掛ける』</li>
+<li>『振り返る』</li>
+<li>『目的地を目指し歩き出す』</li>
+</ol>
+<p>『家から外出する』という処理には、いくつかの命令が組み合わさっていることがわかるかと思います。</p>
+<p>『家から外出する』という処理を行う場合、毎回上記のような命令セットを都度考えながら行っているわけではなく、「『家から外出する』をしよう」、程度にしか考えていないかと思います。</p>
+<p>繰り返し行われるであろう命令セットをひとまとまりにして、再利用できるようにすることが、オブジェクト指向言語で言う <strong><em>メソッド</em></strong> です。</p>
+<h3 id="オブジェクトはデータと処理のまとまり">オブジェクトはデータと処理のまとまり</h3>
+<p>オブジェクト指向プログラミングのお話です。</p>
+<p>オブジェクトは、そのオブジェクトが管理するべきデータ(状態)と、データに対する処理の集まりと定義できます。</p>
+<p>ここで言う <strong><em>処理</em></strong> がメソッドに当てはまります。</p>
+<p>(データは、変数などで表現され、その変数をメソッドに渡すなどしてデータに対する処理を行います。)</p>
+<h3 id="メソッドを書いてみよう">メソッドを書いてみよう</h3>
+<p>メソッドの書き方は以下のとおりです。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">public</span> <span class="kw">class</span> クラス名 {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">//メソッドは、クラス宣言の後の中括弧内にかきます。</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  修飾子 戻り値の型 メソッド名() {</a>
+<a class="sourceLine" id="cb1-5" title="5">    処理</a>
+<a class="sourceLine" id="cb1-6" title="6">  }</a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8">}</a></code></pre></div>
+<h4 id="以下のサンプルソースを実行してみよう">以下のサンプルソースを実行してみよう</h4>
+<p>ファイル名: <code>MethodSample1.java</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">public</span> <span class="kw">class</span> MethodSample1 {</a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="co">//メインメソッド</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="co">//自分のクラスのshowMessageメソッドを単純に呼び出す。</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="fu">showMessage</span>();</a>
+<a class="sourceLine" id="cb2-6" title="6">  }</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="co">//画面上にメッセージを表示するメソッド</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">showMessage</span>() {</a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Hello,World!!&quot;</span>);</a>
+<a class="sourceLine" id="cb2-10" title="10">  }</a>
+<a class="sourceLine" id="cb2-11" title="11">}</a></code></pre></div>
+<p>実行すると、「Hello,World!!」と表示されるはずです。</p>
+<p>javaコマンドでプログラムを実行する場合、最初にmainメソッドが呼び出されます。このサンプルソースでは、mainメソッド内で、showMessageメソッドを呼び出すように記述があります。showMessageメソッドが呼び出されると、showMessageメソッド内の処理が実行され、画面上にメッセージを表示するようになっています。</p>
+<p>サンプルソースでは、showMessageメソッドにstaticの修飾子を付けています。これは、クラスMethodSample1が実行されるタイミングでshowMessageメソッドもメモリ上に展開されるようにする仕組みで、クラス自体をメモリ上に明示的に実体化しなくても使用することを可能とします。詳しい説明は後ほどの講義で行います。</p>
+<h4 id="メソッドを呼び出す場合の注意点">メソッドを呼び出す場合の注意点</h4>
+<p>メソッドを呼び出し、メソッド内の処理を行う場合には、<code>()</code> を付けることを忘れないようにしましょう。</p>
+<h4 id="メソッドを用意するときの注意点">メソッドを用意するときの注意点</h4>
+<p>メソッド名は、<strong><em>必ずアルファベットの小文字からはじめましょう。</em></strong></p>
+<p>後ほど説明しますが、クラス名は必ずアルファベットの大文字からはじめます。</p>
+<h3 id="メソッドに値を渡す">メソッドに値を渡す</h3>
+<p>メソッドには、メソッド内で使用する値を渡すことができます。</p>
+<p>メソッドの処理を渡した値を使用して実⾏することができるようになり、メソッドの処理に柔軟性を持たせることが可能です。</p>
+<p>また、渡す値のことを <strong><em>引数</em></strong> と呼びます。</p>
+<p>引数を受け取れるメソッドの書式は以下のとおりです。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">public</span> <span class="kw">class</span> クラス名 {</a>
+<a class="sourceLine" id="cb3-2" title="2">  修飾子 戻り値の型 メソッド名(引数1の型 引数1の名前, 引数2の型 引数2の名前, .<span class="kw">... </span>) {</a>
+<a class="sourceLine" id="cb3-3" title="3">    処理</a>
+<a class="sourceLine" id="cb3-4" title="4">  }</a>
+<a class="sourceLine" id="cb3-5" title="5">}</a></code></pre></div>
+<p>引数は、引数の型と引数名の組み合わせで複数用意することができます。</p>
+<h4 id="メソッドに値を渡して呼び出すには">メソッドに値を渡して呼び出すには</h4>
+<p>メソッドを呼び出す側のメソッド名の後のカッコの中に、引数として渡したい値や、式を書くことができます。</p>
+<p>以下のサンプルソースを実行してみましょう。</p>
+<p>ファイル名: <code>MethodSample2.java</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">public</span> <span class="kw">class</span> MethodSample2 {</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">//メインメソッド</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="fu">showAnyMessage</span>(<span class="st">&quot;Hello, &quot;</span>);</a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="bu">String</span> str = <span class="st">&quot;World!!&quot;</span>;</a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="fu">showAnyMessage</span>(str);</a>
+<a class="sourceLine" id="cb4-8" title="8">  }</a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="co">//画面上に指定されたメッセージを表示するメソッド</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">showAnyMessage</span>(<span class="bu">String</span> message) {</a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(message);</a>
+<a class="sourceLine" id="cb4-12" title="12">  }</a>
+<a class="sourceLine" id="cb4-13" title="13">}</a></code></pre></div>
+<p>実行すると画面上には</p>
+<pre><code>Hello,
+World!!</code></pre>
+<p>と表示されます。</p>
+<h4 id="複数の引数を渡すサンプル">複数の引数を渡すサンプル</h4>
+<p>ファイル名: <code>MethodSample3.java</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">public</span> <span class="kw">class</span> MethodSample3 {</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">//メインメソッド</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="bu">String</span> str = <span class="st">&quot;Hello, Java!!&quot;</span>;</a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="fu">showMessageWithCombine</span>(<span class="st">&quot;Hello, World!!&quot;</span>, str);</a>
+<a class="sourceLine" id="cb6-6" title="6">  }</a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="co">//画面上に指定された2つのメッセージを,で区切って結合して表示するメソッド</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="dt">static</span> <span class="dt">void</span> <span class="fu">showMessageWithCombine</span>(<span class="bu">String</span> message1, <span class="bu">String</span> message2) {</a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(message1 + <span class="st">&quot; , &quot;</span> + message2);</a>
+<a class="sourceLine" id="cb6-10" title="10">  }</a>
+<a class="sourceLine" id="cb6-11" title="11">}</a></code></pre></div>
+<p>実行すると画面上には</p>
+<pre><code>Hello, World!! , Hello, Java!!</code></pre>
+<p>と表示されます。</p>
+<h3 id="メソッドから値を返してもらう">メソッドから値を返してもらう</h3>
+<p>メソッドには、メソッドを呼び出した側へ値を返す仕組みもあります。このときメソッドから返される値を <strong><em>戻り値</em></strong> と呼びます。</p>
+<p>メソッドの戻り値は返す場合も返さない場合も、メソッドの宣言部ではどちらもメソッド名の前に型を記述します。</p>
+<h4 id="戻り値が必要ない場合">戻り値が必要ない場合</h4>
+<p>戻り値が必要ないメソッド(今までのサンプルソースのようなメソッド)では、戻り値の型を <strong><em>void</em></strong> と書いておきます。</p>
+<p>今までのサンプルソースでは、すべて戻り値を返す必要のない処理ばかりですので、確認しておきましょう。</p>
+<h4 id="メソッドから戻り値を返すには">メソッドから戻り値を返すには</h4>
+<p>メソッドの宣言時にまず、戻り値の型を宣言します。 文字列で値を返す場合は以下のようになります。</p>
+<p>ファイル名: <code>MethodSample4.java</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">public</span> <span class="kw">class</span> MethodSample4 {</a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="co">//メインメソッドは後ほど</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="co">//指定された番号のメッセージを文字列で返すメソッド</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="dt">static</span> <span class="bu">String</span> <span class="fu">getMessage</span>(<span class="dt">int</span> number) {</a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="kw">switch</span> (number) {</a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="kw">case</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb8-8" title="8">        <span class="kw">return</span> <span class="st">&quot;Hello, World!!&quot;</span>;</a>
+<a class="sourceLine" id="cb8-9" title="9">        <span class="co">//return文で、このメソッドの処理自体が終了するため、breakは必要ありません。</span></a>
+<a class="sourceLine" id="cb8-10" title="10">      <span class="kw">case</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb8-11" title="11">        <span class="kw">return</span> <span class="st">&quot;Hello, Java!!&quot;</span>;</a>
+<a class="sourceLine" id="cb8-12" title="12">      <span class="kw">case</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb8-13" title="13">        <span class="kw">return</span> <span class="st">&quot;Hello, Everyone!&quot;</span>;</a>
+<a class="sourceLine" id="cb8-14" title="14">      <span class="kw">default</span>:</a>
+<a class="sourceLine" id="cb8-15" title="15">        <span class="co">//1,2,3以外の番号が指定された場合</span></a>
+<a class="sourceLine" id="cb8-16" title="16">        <span class="kw">return</span> <span class="st">&quot;There is no message specified number.&quot;</span>;</a>
+<a class="sourceLine" id="cb8-17" title="17">    }</a>
+<a class="sourceLine" id="cb8-18" title="18">    <span class="co">//上記switch文ですべてのパターンのときにreturnしているため、ここまで処理は来ません。</span></a>
+<a class="sourceLine" id="cb8-19" title="19">  }</a>
+<a class="sourceLine" id="cb8-20" title="20">}</a></code></pre></div>
+<p>サンプルソースのように、<code>retrun 戻り値;</code> でメソッドの呼び出し元へ値を返すことができます。 実際に、以下のメインメソッドを追記して、処理を実行して見ましょう。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">5</span>; i++) {</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(i + <span class="st">&quot;:&quot;</span>);</a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="bu">String</span> str = <span class="fu">getMessage</span>(i);</a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(str);</a>
+<a class="sourceLine" id="cb9-7" title="7"></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="co">//上記2行を以下のように書いてもOKです</span></a>
+<a class="sourceLine" id="cb9-9" title="9">    <span class="co">//System.out.println(getMessage(i));</span></a>
+<a class="sourceLine" id="cb9-10" title="10">  }</a>
+<a class="sourceLine" id="cb9-11" title="11">}</a></code></pre></div>
+<p>mainメソッド内のnumberの値を1から変更しない場合、以下の実行結果が画面表示されます。</p>
+<pre><code>0:There is no message specified number.
+1:Hello, World!!
+2:Hello, Java!!
+3:Hello, Everyone!
+4:There is no message specified number.</code></pre>
+<h4 id="戻り値の注意点">戻り値の注意点</h4>
+<p>メソッドから返すことのできる値(オブジェクト)は <strong><em>１つ</em></strong> だけです。 複数の値を返したい場合は、配列やクラス変数を使⽤するようにしましょう。</p>
+<h4 id="戻り値のないメソッドのreturn">戻り値のないメソッドのreturn</h4>
+<p>戻り値のないメソッドでも、<code>return;</code>を使用する事ができます。</p>
+<p>この場合、メソッドの処理をretrun;で終了し、メソッドの呼び出し元へ戻ることができます。</p>
+<p>メソッドの処理を中断したい場合に使いましょう。</p>
+</body>
+</html>

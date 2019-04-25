@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>第3回課題</title>
+  <style type="text/css">
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+code{ white-space: pre-wrap; }
+span.smallcaps{ font-variant: small-caps; }
+span.underline{ text-decoration: underline; }
+div.column{ display: inline-block; vertical-align: top; width: 50%; }
+body {
+  font-size: 14pt;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #f8f8f8;
+  color: #232323;
+}
+hr {
+  height: 4px;
+  padding: 0;
+  margin: 2rem 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+  background:
+  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC");
+}
+p, table {
+  font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.03rem;
+}
+strong {
+  text-decoration: none;
+  color: hsla(0, 75%, 55%, 1);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #232323;
+  letter-spacing: 0.05rem;
+  margin-top: 2rem;
+}
+h1 { font-size: 2rem; margin: 2rem auto 1rem; text-align: center; }
+h2 { font-size: 1.75rem; border-bottom: 1px solid rgba(0, 0, 0, 0.2); margin: 2rem 0 1rem; }
+h3 { font-size: 1.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.2); margin: 2rem 0 1rem; }
+h4 { font-size: 1.25rem; margin: 2rem 0 1rem; }
+h5 { font-size: 1.2rem; margin: 2rem 0 1rem; }
+h6 { font-size: 1.1rem; margin: 2rem 0 1rem; }
+ul, ol {
+  font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  line-height: 1.6;
+  letter-spacing: 0.025rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 2rem;
+}
+ul li, ol li {
+  padding-left: .5rem;
+}
+ul ul, ol ul,
+ul ol, ol ol {
+  padding-left: 1.5rem;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  font-size: 1rem;
+  overflow: auto;
+}
+table th {
+  text-align: center;
+  font-weight: nomal;
+  background-color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+table tr {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+}
+table td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+}
+a {
+  color: #5484c8;
+}
+.margin-clear {
+  margin-left: 0;
+}
+blockquote {
+  border-left: 4px #ddd solid;
+  padding: 0;
+  margin: 2rem;
+}
+blockquote * {
+  color: #999;
+}
+blockquote p {
+  padding: 0 1rem;
+  text-indent: 0;
+}
+pre, code, var, samp, kbd, .mono {
+  font-family: "Ricty Diminished", Consolas, 'Courier New', Courier, Monaco, monospace;
+  font-family: "Ricty Diminished", "Consolas", "Courier New", monospace;
+  line-height: 1.2;
+}
+table code,
+p code,
+ul code,
+ol code {
+  display: inline-block;
+  border: 1px solid #eaeaea;
+  background-color: rgb(119, 119, 119);
+  color: #f8f8f8;
+  white-space: nowrap;
+  border-radius: 2px;
+  display: inline-block;
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 0px;
+  margin: 0 4px;
+}
+pre code {
+  border: 1px solid #eaeaea;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  font-size: 1rem;
+}
+.highlight pre {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 4px;
+}
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+pre.sourceCode {
+  overflow: auto !important;
+}
+p img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">第3回課題</h1>
+</header>
+<blockquote>
+<p>オブジェクト指向プログラミングおよび演習1 第3回</p>
+</blockquote>
+<h1 id="教科のテストの点数の合計を個人ごとに算出し合計点の大きい順に並び替えるプログラム">1. 5教科のテストの点数の合計を個人ごとに算出し、合計点の大きい順に並び替えるプログラム</h1>
+<p>以下のように、5教科の点数を10人分用意します。</p>
+<table>
+<thead>
+<tr class="header">
+<th>学籍番号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>国語</td>
+<td>100</td>
+<td>30</td>
+<td>50</td>
+<td>40</td>
+<td>50</td>
+<td>60</td>
+<td>70</td>
+<td>80</td>
+<td>95</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>算数</td>
+<td>30</td>
+<td>55</td>
+<td>45</td>
+<td>60</td>
+<td>65</td>
+<td>50</td>
+<td>80</td>
+<td>25</td>
+<td>100</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td>理科</td>
+<td>90</td>
+<td>75</td>
+<td>35</td>
+<td>90</td>
+<td>65</td>
+<td>60</td>
+<td>80</td>
+<td>25</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>社会</td>
+<td>10</td>
+<td>85</td>
+<td>25</td>
+<td>70</td>
+<td>90</td>
+<td>80</td>
+<td>60</td>
+<td>50</td>
+<td>40</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>英語</td>
+<td>60</td>
+<td>40</td>
+<td>30</td>
+<td>50</td>
+<td>70</td>
+<td>70</td>
+<td>70</td>
+<td>70</td>
+<td>15</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+<p>また、各学籍番号に該当する氏名は以下の通りです。</p>
+<table>
+<thead>
+<tr class="header">
+<th>学籍番号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span> </span></td>
+<td>佐藤一郎</td>
+<td>鈴木次郎</td>
+<td>高橋三郎</td>
+<td>田中四郎</td>
+<td>伊藤五郎</td>
+<td>渡辺六郎</td>
+<td>山本七子</td>
+<td>中村八郎</td>
+<td>小林九</td>
+<td>加藤十子</td>
+</tr>
+</tbody>
+</table>
+<p>5教科の合計点を個人ごとに算出し、点数の高い順で並べ替え、名前と共に点数を画面表示するプログラムを作成します。</p>
+<h2 id="事前準備">事前準備</h2>
+<table>
+<thead>
+<tr class="header">
+<th>ファイル名</th>
+<th>クラス名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ScoresToSort.java</td>
+<td>ScoresToSort</td>
+</tr>
+</tbody>
+</table>
+<h2 id="やること">やること</h2>
+<p>上記表の点数を、以下のように<strong>mainメソッド内で保持</strong>します。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="bu">String</span>[] names = {<span class="st">&quot;佐藤一郎&quot;</span>, <span class="st">&quot;鈴木次郎&quot;</span>, <span class="st">&quot;高橋三郎&quot;</span>, <span class="st">&quot;田中四郎&quot;</span>, <span class="st">&quot;伊藤五郎&quot;</span>, <span class="st">&quot;渡辺六郎&quot;</span>, <span class="st">&quot;山本七子&quot;</span>, <span class="st">&quot;中村八郎&quot;</span>, <span class="st">&quot;小林九&quot;</span>, <span class="st">&quot;加藤十子&quot;</span>};</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dt">int</span>[][] scores = {</a>
+<a class="sourceLine" id="cb1-3" title="3">    {<span class="dv">100</span>,<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">95</span>,<span class="dv">10</span>},</a>
+<a class="sourceLine" id="cb1-4" title="4">    {<span class="dv">30</span>,<span class="dv">55</span>,<span class="dv">45</span>,<span class="dv">60</span>,<span class="dv">65</span>,<span class="dv">50</span>,<span class="dv">80</span>,<span class="dv">25</span>,<span class="dv">100</span>,<span class="dv">35</span>},</a>
+<a class="sourceLine" id="cb1-5" title="5">    {<span class="dv">90</span>,<span class="dv">75</span>,<span class="dv">35</span>,<span class="dv">90</span>,<span class="dv">65</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">25</span>,<span class="dv">0</span>,<span class="dv">20</span>},</a>
+<a class="sourceLine" id="cb1-6" title="6">    {<span class="dv">10</span>,<span class="dv">85</span>,<span class="dv">25</span>,<span class="dv">70</span>,<span class="dv">90</span>,<span class="dv">80</span>,<span class="dv">60</span>,<span class="dv">50</span>,<span class="dv">40</span>,<span class="dv">30</span>},</a>
+<a class="sourceLine" id="cb1-7" title="7">    {<span class="dv">60</span>,<span class="dv">40</span>,<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">70</span>,<span class="dv">70</span>,<span class="dv">70</span>,<span class="dv">70</span>,<span class="dv">15</span>,<span class="dv">55</span>},</a>
+<a class="sourceLine" id="cb1-8" title="8">  };</a></code></pre></div>
+<p>実行時に、上記の点数を元に、個人の5教科合計を算出し、その合計点を降順で並び替え、「名前:点数」の表記で、改行区切りで画面表示してください。</p>
+<p>実行結果として、以下のように出力されるはずです。</p>
+<pre><code>山本七子:360
+伊藤五郎:340
+渡辺六郎:320
+田中四郎:310
+佐藤一郎:290
+鈴木次郎:285
+中村八郎:250
+小林九:250
+高橋三郎:185
+加藤十子:150</code></pre>
+<h1 id="メソッド作成練習">2. メソッド作成練習</h1>
+<p>プログラムとして意味がある課題ではありません。あくまでメソッド作成の練習として捉えてください。 1つのクラスに以下それぞれの指示に従いメソッドを作成してください。</p>
+<h2 id="事前準備-1">事前準備</h2>
+<table>
+<thead>
+<tr class="header">
+<th>ファイル名</th>
+<th>クラス名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UtilityMethods.java</td>
+<td>UtilityMethods</td>
+</tr>
+</tbody>
+</table>
+<h2 id="浮動小数点型の数値を0.00形式でフォーマットして画面出力するメソッド">2-1. 浮動小数点型の数値を0.00形式でフォーマットして画面出力するメソッド</h2>
+<table>
+<thead>
+<tr class="header">
+<th> </th>
+<th>指定内容の詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>メソッド名</td>
+<td>printCurrency</td>
+</tr>
+<tr class="even">
+<td>戻り値</td>
+<td>なし</td>
+</tr>
+<tr class="odd">
+<td>引数1</td>
+<td>浮動小数点型(double)</td>
+</tr>
+<tr class="even">
+<td>処理内容</td>
+<td><code>System.out.printf(&quot;%.2f\n&quot;, 引数1);</code>を使用して画面に表示する</td>
+</tr>
+</tbody>
+</table>
+<h2 id="整数値加算メソッド">2-2. 整数値加算メソッド</h2>
+<table>
+<thead>
+<tr class="header">
+<th> </th>
+<th>指定内容の詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>メソッド名</td>
+<td>add</td>
+</tr>
+<tr class="even">
+<td>戻り値</td>
+<td>整数型(int)</td>
+</tr>
+<tr class="odd">
+<td>引数1</td>
+<td>整数型(int)</td>
+</tr>
+<tr class="even">
+<td>引数2</td>
+<td>整数型(int)</td>
+</tr>
+<tr class="odd">
+<td>処理内容</td>
+<td>引数1と引数2を加算した結果を返す</td>
+</tr>
+</tbody>
+</table>
+<h2 id="整数値同士の除算メソッド">2-3. 整数値同士の除算メソッド</h2>
+<table>
+<thead>
+<tr class="header">
+<th> </th>
+<th>指定内容の詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>メソッド名</td>
+<td>division</td>
+</tr>
+<tr class="even">
+<td>戻り値</td>
+<td><strong>浮動小数点型(double)</strong></td>
+</tr>
+<tr class="odd">
+<td>引数1</td>
+<td>整数型(int)</td>
+</tr>
+<tr class="even">
+<td>引数2</td>
+<td>整数型(int)</td>
+</tr>
+<tr class="odd">
+<td>処理内容</td>
+<td>引数1と引数2を<code>浮動小数点型</code>で除算した結果を返す(例: 1 / 2 = 0.5)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生命宇宙そして万物についての究極の疑問の答えメソッド">2-4. 生命、宇宙、そして万物についての究極の疑問の答えメソッド</h2>
+<table>
+<thead>
+<tr class="header">
+<th> </th>
+<th>指定内容の詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>メソッド名</td>
+<td>getTheAnswerToTheUltimateQuestionOfLife_TheUniverse_And_Everything</td>
+</tr>
+<tr class="even">
+<td>戻り値</td>
+<td>文字列(String)</td>
+</tr>
+<tr class="odd">
+<td>引数</td>
+<td>なし</td>
+</tr>
+<tr class="even">
+<td>処理内容</td>
+<td>750ミリ秒待った後に文字列“42”を返す<br>参考資料：<a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%91%BD%E3%80%81%E5%AE%87%E5%AE%99%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6%E4%B8%87%E7%89%A9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E7%A9%B6%E6%A5%B5%E3%81%AE%E7%96%91%E5%95%8F%E3%81%AE%E7%AD%94%E3%81%88">生命、宇宙、そして万物についての究極の疑問の答え - Wikipedia</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="補足">2-4補足</h3>
+<p>750ミリ秒待たせる処理については、処理を待たせたい箇所に以下のコードを差し込んで下さい。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">try</span>{</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="bu">Thread</span>.<span class="fu">sleep</span>(<span class="dv">750</span>);</a>
+<a class="sourceLine" id="cb3-3" title="3">}<span class="kw">catch</span>(<span class="bu">InterruptedException</span> e){}</a></code></pre></div>
+<h2 id="動作確認mainメソッドの実装">動作確認(mainメソッドの実装)</h2>
+<p>mainメソッドは、上記メソッドの動作確認を行うコードを自由に書いて下さい。mainメソッドでちゃんと作成したメソッドの動作確認ができているかも評価のポイントとなります。</p>
+<p>また、mainメソッドは<code>static</code>ですが、指定したメソッドはそうではありません。mainメソッド内で<code>UtilityMethods</code>クラスをインスタンス化する必要があります。以下のようにメソッドを呼び出してください。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">UtilityMethods app = <span class="kw">new</span> <span class="fu">UtilityMethods</span>();</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(app.<span class="fu">getTheAnswerToTheUltimateQuestionOfLife_TheUniverse_And_Everything</span>());</a></code></pre></div>
+</body>
+</html>
